@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+
+<div  ng-controller="myCtrl">
+<h1 ng-bind="title"></h1>
+</div>
+
+<div ng-controller="myCtrl2">
+<h1 ng-bind="title"></h1>
+</div>
+
+
+<p>This example uses the built-in $location service to get the absolute url of the page.</p>
+
+<script>
+var app=angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $location) {
+    $scope.title="Hello";
+	});
+	
+app.controller('myCtrl2', function($scope, $location) {
+$scope.title="Hello World";
+});
+	
+</script>
+
+
+</body>
+</html>

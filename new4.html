@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-controller="myCtrl"> 
+<p>This header will change after two seconds:</p>
+<p>{{myHeader}}</p>
+</div>
+
+<div ng-controller="myCtrl1"> 
+<h3>The time is: {{theTime}} </h3>
+<!-- <h3>{{theTime}}</h3> -->
+</div>
+
+<div  ng-controller="myCtrl2">
+
+<h3>Select a team:</h3>
+
+<select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+</select>
+
+<p>You selected: {{selectedCar.brand}}</p>
+<p>Designation: {{selectedCar.model}}</p>
+<p>Language: {{selectedCar.color}}</p>
+
+</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $timeout) {
+  $scope.myHeader = "nagasai aralusu";
+  $timeout(function () {
+      $scope.myHeader = "sai manoj mental";
+  }, 2000);
+});
+
+app.controller('myCtrl1', function($scope, $interval) {
+  $scope.theTime = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+  }, 1000);
+});
+
+app.controller('myCtrl2', function($scope) {
+    $scope.cars = {
+        team1 : {brand : "Dolphin", model : "Traniee", color : ".Net"},
+        team2 : {brand : "N-trust", model : "Traniee", color : "Java"},
+        team3 : {brand : "Merage", model : "Traniee", color : "C#"}
+    }
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

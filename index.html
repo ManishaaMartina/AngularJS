@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="userCtrl">
+<div>
+<h3>user-details:</h3>
+<button ng-click="createuser()"> user</button>
+<form ng-show="formhide">
+    <label>ID:</label>
+    <input  type="text" ng-model="id" placeholder="ID NO">
+    <br>
+    <label>First Name:</label>
+    <input  type="text" ng-model="fName" placeholder="First Name">
+  <br>
+    <label>Last Name:</label>
+    <input  type="text" ng-model="lName" placeholder="Last Name">
+  <br>
+    <label>Phoneno:</label>
+    <input type="text" ng-model="Phoneno" placeholder="Phoneno">
+  <br>
+    <label>Address:</label>
+    <input type="text" ng-model="Address" placeholder="Address">
+ <br>
+ <button ng-click="createItemFunc()">Create</button>
+ <br>
+ <input type="submit" ng-click="show()" value="show">
+ <br> 
+ <input type="submit" ng-click="fillfunc()" value="Fill">
+ <p ng-model="fillvalue" data-ng-bind="fillvalue">{{ fillvalue }}</p>
+ <br> 
+</form>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Edit</th>
+    <th>id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phoneno</th>
+    <th>Address</th>
+  </tr>
+  <tr ng-repeat="u in users">
+    <td><button ng-click="deleteItem($index,u)">Delete</button></td>
+    <td><button ng-click="editItem($index)">Edit</button></td>
+    <td>{{ u.id }}</td>
+    <td>{{ u.fName }}</td>
+    <td>{{ u.lName }}</td>
+    <td>{{ u.Phoneno }}</td>
+    <td>{{ u.Address }}</td>
+  </tr>
+</table>
+<br>
+<form ng-show="edit">
+  <label>ID:</label>
+    <input  type="text" ng-model="eid" placeholder="ID NO" ng-disabled="edit">
+    <br>
+    <label>First Name:</label>
+    <input  type="text" ng-model="efName" placeholder="First Name">
+  <br>
+    <label>Last Name:</label>
+    <input  type="text" ng-model="elName" placeholder="Last Name">
+  <br>
+    <label>Phoneno:</label>
+    <input type="text" ng-model="ePhoneno" placeholder="Phoneno">
+  <br>
+    <label>Address:</label>
+    <input type="text" ng-model="eAddress" placeholder="Address">
+    <button ng-click="saveChanges(eid)">SaveChanges</button>
+ <br>
+</form>
+<form>
+    
+    <button ng-click="showall()">showall</button>
+    <p ng-model="shw">{{ shw }}</p>
+    <span data-ng-bind="shw"></span>
+    <button ng-click="joining()">Concat</button>
+    <p ng-model="join" data-ng-bind="join">{{ join }}</p>
+    <br>
+    <button ng-click="copyinarray()">Copy</button>
+    <p ng-model="copyarray" data-ng-bind="copyarray">{{ copyarray }}</p>
+    <br>
+    <input type="text" ng-model="filterdatum" placeholder="filterdatum">
+    <button ng-click="filterbyfname()">Filtering</button>
+    <p ng-model="filterdatum2" data-ng-bind="filterdatum1">{{ filterdatum1 }}</p>
+    <br>
+    <label>Delete an element:</label>
+    <input type="text" ng-model="firstname">
+    <button ng-click="deleteItemFunc(firstname)">Delete</button></br>
+</div>
+
+<script src= "ang.js"></script>
+
+</body>
+</html>

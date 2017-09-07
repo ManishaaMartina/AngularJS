@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-controller="myCtrl1">
+<p>The url of this page is:</p>
+<h3>{{myUrl}}</h3>
+</div>
+<div  ng-controller="myCtrl">
+<p>The url of this page is:</p>
+<h3>{{myUrl}}</h3>
+</div>
+<p>Input something in the input box:</p>
+<!-- p>Name: <input type="text" ng-model="name"></p> -->
+<input ng-model="name">
+<h4>Hello {{name}}</h4> 
+<p>Print: <input type="text" ng-model="print"></p>
+<p ng-bind="print"></p> 
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+Full Name: {{firstName + " " + lastName}}<br>
+<br>
+First Name: <input type="text" ng-model="fName"><br>
+Last Name: <input type="text" ng-model="lName"><br>
+Full Name: {{fullName()}}
+<br>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= ["Jesus Mary Susai"];
+    $scope.lastName= "MarySanthi";
+	$scope.fName= "Manisha";
+    $scope.lName= "Martina";
+	$scope.fullName = function() {
+        return $scope.fName + " " + $scope.lName;
+    };
+});
+app.controller('myCtrl1', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+</script>
+
+</body>
+</html>
